@@ -605,5 +605,8 @@ Once you have access to all of your power and energy data, there are many creati
 <img src='images/HVAC_Dashboard.jpg' width='400px'>
 
 ## My electric configuration and main dashboard
-[packages\home_electric.yaml](http://www.google.com)
-[lovelace\home_electric.yaml](http://www.google.com)
+
+[packages\home_electric.yaml](https://github.com/ccpk1/Home-Assistant-Energy-Management/blob/master/yaml/packages_home_electric.yaml)
+
+[lovelace\home_electric.yaml](https://github.com/ccpk1/Home-Assistant-Energy-Management/blob/master/yaml/lovelace_home_electric.yaml)
+
