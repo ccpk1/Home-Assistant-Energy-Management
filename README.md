@@ -4,11 +4,12 @@
 
 I started measuring my home energy use about 3 years ago.  In the beginning it was just interesting to get things setup and see my total usage.  It gave me some insights, but I found myself wanting a more granular level of detail that would allow me to more quickly identify problem areas and opportunities for improvement.
 
+## Detailed energy monitoring with Emporia Gen2 Vue
+
 About 18 months ago I purchased two [Emporia Gen2 Vue](https://shop.emporiaenergy.com/collections/emporia-products/products/gen-2-emporia-vue-with-16-sensors-bundle) devices and outfitted 16 circuits in each of my two electrical panels.  Being able to report on the total power usage as well as details of 32 selected circuits gives a really nice level of detail.
 
 <img src='images/Electric_Panels.jpg' width='400px'>
 
-## Thoughts on Emporia Gen2 Vue
 I purchased the Vue2 devices because of the well thought out design, attractive pricing, and at that time, Emporia was saying local API was on their roadmap... based on many inquiries and Emporia's forum responses, it doesn't seem like that will ever happen.
 
 Until a week ago, I had been using the custom_component integration that was written by [magico13](https://github.com/magico13/ha-emporia-vue). That served me well, but it requires cloud accounts is limited to 1 minute reporting because of load on cloud servers.  One minute reporting is still very good, and probably covers 98% of the use cases that anyone would have.
@@ -24,7 +25,7 @@ The Home Assistant developers have done a great job adding in better support for
 I'll start out by saying that not everyone will agree with everything I do in my approach toward this. (i.e. basing a lot of this on entity_id naming and not aiming for "Pefect" measurements of energy usage) That said, there are always limitations and compromises to consider, and based on a good amount of research, trial, and error, I think this is a pretty good compromise. It definitely gives me a clear and detailed understanding of my usage.
 
 Here are the key points in my configuration:
-- I only store and report data from power and energy sensors that I've created with templates. This allows to ensure consistent naming and attributes since I use power details from many different integrations and sensors.  This is very important when you want to use things like filters or templates to minimize the amount of manual group management required.
+- I only store and report data from power and energy sensors that I've created with templates. This allows to ensure consistent naming and attributes since I use power details from many different integrations and sensors.  This also allows me to create a relationship between the circuit being monitored and the loads that are running on that circuit. Naming is also very important when you want to use things like filters or templates to minimize the amount of manual group management required.
 - Similar to the point above, you should consider excluding unused power and energy sensors from the recorder to minimize data size and performance impact.
 - I keep all of my energy configuration in single package yaml file for easy management.  If you aren't using the package directory approach for managing and organizing at least your complex configurations, you should look into it.
 
@@ -44,7 +45,7 @@ input_number:
     max: 1
 ```
 ### Create a template trigger for all energy sensors
-The reason for the trigger template for sensors is to control the number of updates that would occur otherwise.  In my case I'm having teh templates evaluate and capture energy data from all sensors and groups every 5 seconds.  So my trigger is a 5 second pattern. You can change that to your needs, but your database will grow very quickly and performance will suffer if you aren't careful. 
+The reason for the trigger template for sensors is to control the number of updates that would occur otherwise.  In my case I'm having the templates evaluate and capture energy data from all sensors and groups every 5 seconds.  So my trigger is a 5 second pattern. You can change that to your needs, but your database will grow very quickly and performance will suffer if you aren't careful. 
 
 **IMPORTANT:** If you use a regular template sensor without a trigger for a group of devices, you will likely have issues.  Consider a group with 10 devices getting updates every 1 second.  That template will re-evaluate every time each one of those devices reports.  That's at least 10+ updates per second for each group sensor which over days and weeks will add up up to issues.
 
@@ -170,6 +171,7 @@ In the snip of yaml above, it proably looks a little complex, but take a look at
 * I am using yaml anchors to simplify, thats why you see the "<<: &" and "<<: *".  It's like declaring a variable, then allows use of those items throughout your code.
 * The names are structured and specific. In the case of p1_00_total_power, that is the total power being delivered by electric panel 1, while p1_04_office_power is electric panel 1, the 4th monitored circuit.  
 * Take note of the next entry which is p1_04_v_office_floor_light_power. The "v" is meant to stand for virtual, which means it will be used for some calculations on that circuit.  This naming structure allows easy automated creation of "circuit groups" that make up the known loads on each circuit.  By subtracting the known loads from the circuit, you are left with the remaining power so nothing is double counted in reporting totals.
+* The last part of the naming used for each sensor is also very specific.  "_power", "_total_power", "_group_total_power", "_energy", "_group_total_energy", "_group_daily_total_energy", "_group_monthly_total_energy", "_group_daily_total_energy_cost", "_group_monthly_total_energy_cost"
 * The use of "max( x, 0.0)" in most of the states is an easy way of preventing negative power readings which are typically noise or could also occur briefly due to the way calculations are being done
 
 ### Calculating the values the power sensors templates
@@ -215,6 +217,9 @@ In this example, the template will expand out group.water_heater_group_total_pow
 
 ### Creating groups of power sensors
 One option is to just manually create the groups you want to monitor, then use the formulas found above to calulate total power usage of that group of sensors.  I wanted to automate that group creation and maintenance based on entity names.  Again not everyone is supportive of this approach, and it does take some good naming structure for it to work properly, but it's working well for me.
+
+<img src='images/group_p1_04_v.jpg' width='600px'>
+
 ```
 automation:
   ################  Create and update power groupings for circuits and devices  ###############
@@ -324,9 +329,15 @@ sensor:
         <<: *energy_cost_defaults
 ```
 
+## Example of all entities created for one energy group type
+
+<img src='images/kitchen_appliance_entities.jpg' width='800px'>
+
 ## Bringing it all together in the UI
 Last year, around earth day, I decided it would be a good time to update my dashboards with a focus on energy throughout.  Each one of my dashboard pages has energy details at the top to keep it visible and top of mind.  Here are some examples:
+
 <img src='images/Home_Dashboard.jpg' width='400px'>
+
 ```
 title: "" #########################  Home  #########################
 icon: mdi:home
