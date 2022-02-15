@@ -1,10 +1,12 @@
 # My approach to energy management
 
-![](images/Main_Dashboard.jpg)
+<img src='images/Main_Dashboard.jpg' width='1024px'>
+
 I started measuring my home energy use about 3 years ago.  In the beginning it was just interesting to get things setup and see my total usage.  It gave me some insights, but I found myself wanting a more granular level of detail that would allow me to more quickly identify problem areas and opportunities for improvement.
 
 About 18 months ago I purchased two [Emporia Gen2 Vue](https://shop.emporiaenergy.com/collections/emporia-products/products/gen-2-emporia-vue-with-16-sensors-bundle) devices and outfitted 16 circuits in each of my two electrical panels.  Being able to report on the total power usage as well as details of 32 selected circuits gives a really nice level of detail.
-![](images/Electric_Panels.jpg)
+
+<img src='images/Electric_Panels.jpg' width='400px'>
 
 ## Thoughts on Emporia Gen2 Vue
 I purchased the Vue2 devices because of the well thought out design, attractive pricing, and at that time, Emporia was saying local API was on their roadmap... based on many inquiries and Emporia's forum responses, it doesn't seem like that will ever happen.
@@ -15,7 +17,8 @@ That said, I always felt a little cheated that I couldn't access the full capabi
 
 ## Home Assistant Energy Dashboard
 The Home Assistant developers have done a great job adding in better support for monitoring energy.  Nice looking dashboards with improved statistics and reporting capabilities.  All the work I've done can also take advantage of those built in features.  I'd like to see native capabilities to more easily group devices together for energy reporting and show real time power reporting as I've done in mine, but I'm guessing it will come at some point.  For my HA energy dashboard, I'm only monitoring my device groups, not individual devices since I have that in my custom dashboard.  I also have more detailed reporting in Influx/Grafana, but that's a separate discussion.
-![](images/Energy_Dashboard.jpg)
+
+<img src='images/Energy_Dashboard.jpg' width='800px'>
 
 ## General concepts for my approach
 I'll start out by saying that not everyone will agree with everything I do in my approach toward this. (i.e. basing a lot of this on entity_id naming and not aiming for "Pefect" measurements of energy usage) That said, there are always limitations and compromises to consider, and based on a good amount of research, trial, and error, I think this is a pretty good compromise. It definitely gives me a clear and detailed understanding of my usage.
@@ -27,6 +30,7 @@ Here are the key points in my configuration:
 
 
 ## Backend Configuration:
+
 ### Create an input_number to store your energy cost
 You can also reference this entity in the native energy dashboard, so it is dual purpose.  Note I do not have variable energy rates, so that would add some complexity that I'm not covering here.
 ```
@@ -179,10 +183,18 @@ Notice there are several ways to get power usage:
 * Same as above, but when only on / off are known for a 45W device: 
 >`{% if is_state('switch.landscape_lighting','on') %}{{ 45| float(0) | round(1)}}{% else %}{{ 0 | float(0) | round(1) }}{% endif %}`
 * More complex calculations can also be done using templates and groups.  In the case of p1_04_office_power, that is a monitored circuit with multiple loads.  The known loads are listed with the `_v_` designations so they can be automatically placed into groups to be subtracted from that circuit.  With this approach, the value of p1_04_office_power ends up only being the remaining power of the circuit after the known loads are removed.  Without calculation the p1_04_office_power circuit would be 77.4W, which would be double counting the loads on that circuit that are also being measured.
->`{% set virtualpower = expand('group.p1_04_v_power') | rejectattr('state', 'in', ['unavailable', 'unknown']) | map(attribute='state') | map('float') | sum | round(2) %}
-          {{ max( (states('sensor.office_p1_4_power') | float(0) - virtualpower) | round(1), 0.0 ) }`
+```
+      - name: p1_04_office_power
+        attributes:
+          tmp_friendly_name: "Office Power"
+          <<: *power_sensor_force_update
+        state: >-
+          {% set virtualpower = expand('group.p1_04_v_power') | rejectattr('state', 'in', ['unavailable', 'unknown']) | map(attribute='state') | map('float') | sum | round(2) %}
+          {{ max( (states('sensor.office_p1_4_power') | float(0) - virtualpower) | round(1), 0.0 ) }}
+        <<: *power_sensor_defaults
+ ```
           
-![](images/circuit_subtraction.jpg)
+<img src='images/circuit_subtraction.jpg' width='400px'>
  
 ### Creating power sensors for devices in a group
 In this example, the template will expand out group.water_heater_group_total_power and add the power usage of all the sensors in that group.  The resulting sensor created will be sensor.water_heater_group_total_power. Note the different entities even group name is the same as the sensor name, that is just for easy management.  In the example picture, this sensor would just be the "head" entry total for kitchen appliances, the sum of all the values in the group shown.
@@ -199,7 +211,7 @@ In this example, the template will expand out group.water_heater_group_total_pow
         <<: *power_sensor_defaults
 ```
 
-![](images/Power_Usage_Expanded.jpg)
+<img src='images/Power_Usage_Expanded.jpg' width='400px'>
 
 ### Creating groups of power sensors
 One option is to just manually create the groups you want to monitor, then use the formulas found above to calulate total power usage of that group of sensors.  I wanted to automate that group creation and maintenance based on entity names.  Again not everyone is supportive of this approach, and it does take some good naming structure for it to work properly, but it's working well for me.
@@ -238,7 +250,9 @@ automation:
 
 ## Simplifying the energy calculations
 For some reason it was difficult for me to understand what needed to be done to convert from power to energy.  Power is measured in Watts or kiloWatts, but I am only using Watts in my measurements.  Energy is generally measured in kWh (kiloWatt hours).  If you are measuring your power in Watts, you can easily track your energy/kWh by following the patterns in the following 3 sections.
-![](images/energy_consumption.jpg)
+
+<img src='images/energy_consumption.jpg' width='400px'>
+
 ### Create sensors for hourly energy calculations
 These sensors continuously calculate the kWh over the past hour which allows the utility meter integration to capture the daily and monthly energy consumption from this data.
 
@@ -312,7 +326,7 @@ sensor:
 
 ## Bringing it all together in the UI
 Last year, around earth day, I decided it would be a good time to update my dashboards with a focus on energy throughout.  Each one of my dashboard pages has energy details at the top to keep it visible and top of mind.  Here are some examples:
-![](images/Home_Dashboard.jpg)
+<img src='images/Home_Dashboard.jpg' width='400px'>
 ```
 title: "" #########################  Home  #########################
 icon: mdi:home
@@ -397,7 +411,9 @@ cards:
                 format: precision0
                 unit: false
 ```
-![](images/Lighting_Dashboard.jpg)
+
+<img src='images/Lighting_Dashboard.jpg' width='400px'>
+
 ```
 title: "" #########################  Lights  #########################
 icon: mdi:lightbulb-multiple
@@ -480,7 +496,9 @@ cards:
             format: precision0
             unit: false
 ```
-![](images/Technology_Dashboard.jpg)
+
+<img src='images/Technology_Dashboard.jpg' width='400px'>
+
 ```
 title: "" #########################  Home Tech  Net#########################
 icon: "mdi:network"
@@ -557,17 +575,20 @@ cards:
 
 ## Extra credit
 Once you have access to all of your power and energy data, there are many creative things you can use it for.
+
 ### Laundry
 * See when appliances are running
 * Get notifications when a cycle is finished
 * Count how many times each appliance has run in the past 7 day
-![](images/Laundry.jpg) 
+<img src='images/Laundry.jpg' width='400px'>
+
 ### Water
 * See how long your water heater is running each day
 * Count how many times per hour your sump pump is running
 * Notify if your sump pump runs x times per hour
-![](images/Water.jpg)
+<img src='images/Water.jpg' width='800px'>
+
 ### Heating and Cooling
 * Calculate the amount of time your heater is running per day
 * For those with heat pumps, count your defrost cycles per day as well as aux heat runtime.
-![](images/HVAC_Dashboard.jpg)
+<img src='images/HVAC_Dashboard.jpg' width='400px'>
