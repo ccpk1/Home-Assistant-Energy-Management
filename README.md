@@ -12,9 +12,12 @@ About 18 months ago I purchased two [Emporia Gen2 Vue](https://shop.emporiaenerg
 
 I purchased the Vue2 devices because of the well thought out design, attractive pricing, and at that time, Emporia was saying local API was on their roadmap... based on many inquiries and Emporia's forum responses, it doesn't seem like that will ever happen.
 
+### Using Emporia's cloud services
 Until a week ago, I had been using the custom_component integration that was written by [magico13](https://github.com/magico13/ha-emporia-vue). That served me well, but it requires cloud accounts is limited to 1 minute reporting because of load on cloud servers.  One minute reporting is still very good, and probably covers 98% of the use cases that anyone would have.
 
-That said, I always felt a little cheated that I couldn't access the full capabilities of the device in Home Assistant.  Last week I stumbled accross [this fantastic project](https://gist.github.com/flaviut/93a1212c7b165c7674693a45ad52c512#file-setting-up-emporia-vue-2-with-esphome-md) where a group reverse engineered the Vue device and provided instructions to **flash with ESPHome!** I flashed both units later that day, and after a few small hurdles, I had everything working perfectly.  I finally have this unit working exactly as I originally anticpated with the ability to see realtime data with updates few seconds.
+### Emporia Gen2 Vue running ESPHome!
+
+Even though everything was working, I always felt a little cheated that I couldn't access the full capabilities of the device in Home Assistant.  Last week I stumbled accross [this fantastic project](https://gist.github.com/flaviut/93a1212c7b165c7674693a45ad52c512#file-setting-up-emporia-vue-2-with-esphome-md) where a group reverse engineered the Vue device and provided instructions to **flash with ESPHome!** I flashed both units later that day, and after a few small hurdles, I had everything working perfectly.  I finally have this unit working exactly as I originally anticpated with the ability to see realtime data with updates few seconds.
 
 ## Home Assistant Energy Dashboard
 The Home Assistant developers have done a great job adding in better support for monitoring energy.  Nice looking dashboards with improved statistics and reporting capabilities.  All the work I've done can also take advantage of those built in features.  I'd like to see native capabilities to more easily group devices together for energy reporting and show real time power reporting as I've done in mine, but I'm guessing it will come at some point.  For my HA energy dashboard, I'm only monitoring my device groups, not individual devices since I have that in my custom dashboard.  I also have more detailed reporting in Influx/Grafana, but that's a separate discussion.
@@ -34,7 +37,7 @@ Here are the key points in my configuration:
 
 ### Create an input_number to store your energy cost
 You can also reference this entity in the native energy dashboard, so it is dual purpose.  Note I do not have variable energy rates, so that would add some complexity that I'm not covering here.
-```
+```yaml
 input_number:
   energy_kwh_cost:
     name: Energy kWh Cost
@@ -49,7 +52,7 @@ The reason for the trigger template for sensors is to control the number of upda
 
 **IMPORTANT:** If you use a regular template sensor without a trigger for a group of devices, you will likely have issues.  Consider a group with 10 devices getting updates every 1 second.  That template will re-evaluate every time each one of those devices reports.  That's at least 10+ updates per second for each group sensor which over days and weeks will add up up to issues.
 
-```
+```yaml
 template:
   - trigger:
       # IMPORTANT - You must use some time pattern at least for at least the calculation of the groups, otherwise, it
@@ -177,15 +180,28 @@ In the snip of yaml above, it proably looks a little complex, but take a look at
 ### Calculating the values the power sensors templates
 Notice there are several ways to get power usage:
 * Direct from another power sensor: 
->`{{ max( states('sensor.fl1_air_handler_p1_1_power') | float(0) | round(1), 0.0 ) }}`
-* Adding sensors together:
->`{{ (states('sensor.electric_p1_phase_a_voltage') | float(0) + states('sensor.electric_p1_phase_b_voltage') | float(0)) | round(1) }}`
-* You don't need to have true energy monitoring on devices to track power usage.  If you can determine whether the device is on or off, and you can estimate is power while on, then just calculate it in a template.  Granted it is an estimate, but if can give you a lot more information if you are OK with the compromise.  Use the p1_04_v_office_floor_light_power example again. That template is calculating an energy value estimate based on 5 bulbs x 8 watts each x brightness of the light to determine power usage.
->`{{ (5 * 8 * state_attr('light.office_floor_light','brightness') | float(0) / 255) | round(1) }}`
-* Same as above, but when only on / off are known for a 45W device: 
->`{% if is_state('switch.landscape_lighting','on') %}{{ 45| float(0) | round(1)}}{% else %}{{ 0 | float(0) | round(1) }}{% endif %}`
-* More complex calculations can also be done using templates and groups.  In the case of p1_04_office_power, that is a monitored circuit with multiple loads.  The known loads are listed with the `_v_` designations so they can be automatically placed into groups to be subtracted from that circuit.  With this approach, the value of p1_04_office_power ends up only being the remaining power of the circuit after the known loads are removed.  Without calculation the p1_04_office_power circuit would be 77.4W, which would be double counting the loads on that circuit that are also being measured.
+  
+```yaml
+{{ max( states('sensor.fl1_air_handler_p1_1_power') | float(0) | round(1), 0.0 ) }}
 ```
+
+* Adding sensors together:
+```yaml
+{{ (states('sensor.electric_p1_phase_a_voltage') | float(0) + states('sensor.electric_p1_phase_b_voltage') | float(0)) | round(1) }}
+```
+
+* You don't need to have true energy monitoring on devices to track power usage.  If you can determine whether the device is on or off, and you can estimate is power while on, then just calculate it in a template.  Granted it is an estimate, but if can give you a lot more information if you are OK with the compromise.  Use the p1_04_v_office_floor_light_power example again. That template is calculating an energy value estimate based on 5 bulbs x 8 watts each x brightness of the light to determine power usage.
+```yaml
+{{ (5 * 8 * state_attr('light.office_floor_light','brightness') | float(0) / 255) | round(1) }}
+```
+
+* Same as above, but when only on / off are known for a 45W device: 
+```yaml
+{% if is_state('switch.landscape_lighting','on') %}{{ 45| float(0) | round(1)}}{% else %}{{ 0 | float(0) | round(1) }}{% endif %}
+```
+
+* More complex calculations can also be done using templates and groups.  In the case of p1_04_office_power, that is a monitored circuit with multiple loads.  The known loads are listed with the `_v_` designations so they can be automatically placed into groups to be subtracted from that circuit.  With this approach, the value of p1_04_office_power ends up only being the remaining power of the circuit after the known loads are removed.  Without calculation the p1_04_office_power circuit would be 77.4W, which would be double counting the loads on that circuit that are also being measured.
+```yaml
       - name: p1_04_office_power
         attributes:
           tmp_friendly_name: "Office Power"
@@ -201,7 +217,7 @@ Notice there are several ways to get power usage:
 ### Creating power sensors for devices in a group
 In this example, the template will expand out group.water_heater_group_total_power and add the power usage of all the sensors in that group.  The resulting sensor created will be sensor.water_heater_group_total_power. Note the different entities even group name is the same as the sensor name, that is just for easy management.  In the example picture, this sensor would just be the "head" entry total for kitchen appliances, the sum of all the values in the group shown.
 **IMPORTANT:** This should be done in a trigger template, otherwise will constantly be recalculating.  See warnings above.
-```
+```yaml
       - name: kitchen_appliance_group_total_power
         icon: mdi:fridge-outline
         state: >-
@@ -220,7 +236,7 @@ One option is to just manually create the groups you want to monitor, then use t
 
 <img src='images/group_p1_04_v.jpg' width='600px'>
 
-```
+```yaml
 automation:
   ################  Create and update power groupings for circuits and devices  ###############
   - alias: "Update Power Groups"
@@ -254,14 +270,20 @@ automation:
 ```
 
 ## Simplifying the energy calculations
-For some reason it was difficult for me to understand what needed to be done to convert from power to energy.  Power is measured in Watts or kiloWatts, but I am only using Watts in my measurements.  Energy is generally measured in kWh (kiloWatt hours).  If you are measuring your power in Watts, you can easily track your energy/kWh by following the patterns in the following 3 sections.
+When looking into this, I remember it was really tricky to figure out what I needed to do in Home Assistant to convert from power to energy.  It is important to be clear on these two terms, they aren't directly interchangeable.  
+
+>Power rate of producing or consuming energy.  For home electric normally measured in watts(W) or kilowatts(kW).  Note I keep everything in watts for simiplicity
+
+>Energy measures the total quantity of "Work" done.  For home electric normally measured in kWh (kiloWatt hours).  
+
+If you are measuring your power in Watts, you can easily track your energy/kWh by following the patterns in the following 3 sections.
 
 <img src='images/energy_consumption.jpg' width='400px'>
 
 ### Create sensors for hourly energy calculations
 These sensors continuously calculate the kWh over the past hour which allows the utility meter integration to capture the daily and monthly energy consumption from this data.
 
-```
+```yaml
 sensor:
   ################  Total hourly energy calculation  ###############
   - platform: integration
@@ -279,7 +301,7 @@ sensor:
 
 ### Tracking consumption with the utility_meter
 These sensors are what will be used for actual reporting of usage per day or per month in kWh
-```
+```yaml
 utility_meter:
   ################  Track daily consumption for each grouping  ###############
   electric_home_daily_total_energy:
@@ -288,7 +310,7 @@ utility_meter:
   kitchen_appliance_group_daily_total_energy:
     source: sensor.kitchen_appliance_group_total_energy
     cycle: daily
-      ################  Track monthly consumption for each grouping  ###############
+  ################  Track monthly consumption for each grouping  ###############
   electric_home_monthly_total_energy:
     source: sensor.electric_home_total_energy
     cycle: monthly
@@ -299,7 +321,7 @@ utility_meter:
 
 ### Calculating Cost
 
-```
+```yaml
 sensor:
   - platform: template
     sensors:
@@ -338,7 +360,7 @@ Last year, around earth day, I decided it would be a good time to update my dash
 
 <img src='images/Home_Dashboard.jpg' width='400px'>
 
-```
+```yaml
 title: "" #########################  Home  #########################
 icon: mdi:home
 cards:
@@ -425,7 +447,7 @@ cards:
 
 <img src='images/Lighting_Dashboard.jpg' width='400px'>
 
-```
+```yaml
 title: "" #########################  Lights  #########################
 icon: mdi:lightbulb-multiple
 cards:
@@ -510,7 +532,7 @@ cards:
 
 <img src='images/Technology_Dashboard.jpg' width='400px'>
 
-```
+```yaml
 title: "" #########################  Home Tech  Net#########################
 icon: "mdi:network"
 badges: []
@@ -590,21 +612,24 @@ Once you have access to all of your power and energy data, there are many creati
 ### Laundry
 * See when appliances are running
 * Get notifications when a cycle is finished
-* Count how many times each appliance has run in the past 7 day
+* Count how many times each appliance has run in the past 7 days
+  
 <img src='images/Laundry.jpg' width='400px'>
 
 ### Water
 * See how long your water heater is running each day
 * Count how many times per hour your sump pump is running
 * Notify if your sump pump runs x times per hour
+
 <img src='images/Water.jpg' width='800px'>
 
 ### Heating and Cooling
 * Calculate the amount of time your heater is running per day
 * For those with heat pumps, count your defrost cycles per day as well as aux heat runtime.
+
 <img src='images/HVAC_Dashboard.jpg' width='400px'>
 
-## My electric configuration and main dashboard
+## My full electric configuration and main dashboard yaml files
 
 [packages\home_electric.yaml](https://github.com/ccpk1/Home-Assistant-Energy-Management/blob/master/yaml/packages_home_electric.yaml)
 
