@@ -1,4 +1,4 @@
-# My approach to energy management
+# A detailed approach to energy management in Home Assistant
 
 <img src='images/Main_Dashboard.jpg' width='1024px'>
 
