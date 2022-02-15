@@ -30,6 +30,7 @@ Here are the key points in my configuration:
 
 
 ## Backend Configuration:
+
 ### Create an input_number to store your energy cost
 You can also reference this entity in the native energy dashboard, so it is dual purpose.  Note I do not have variable energy rates, so that would add some complexity that I'm not covering here.
 ```
@@ -574,16 +575,19 @@ cards:
 
 ## Extra credit
 Once you have access to all of your power and energy data, there are many creative things you can use it for.
+
 ### Laundry
 * See when appliances are running
 * Get notifications when a cycle is finished
 * Count how many times each appliance has run in the past 7 day
 <img src='images/Laundry.jpg' width='400px'>
+
 ### Water
 * See how long your water heater is running each day
 * Count how many times per hour your sump pump is running
 * Notify if your sump pump runs x times per hour
 <img src='images/Water.jpg' width='800px'>
+
 ### Heating and Cooling
 * Calculate the amount of time your heater is running per day
 * For those with heat pumps, count your defrost cycles per day as well as aux heat runtime.
