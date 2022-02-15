@@ -592,3 +592,7 @@ Once you have access to all of your power and energy data, there are many creati
 * Calculate the amount of time your heater is running per day
 * For those with heat pumps, count your defrost cycles per day as well as aux heat runtime.
 <img src='images/HVAC_Dashboard.jpg' width='400px'>
+
+## My electric configuration and main dashboard
+[packages\home_electric.yaml](http://www.google.com)
+[lovelace\home_electric.yaml](http://www.google.com)
