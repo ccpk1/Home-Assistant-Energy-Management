@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "SSH FS - firewalla",
+			"uri": "ssh://firewalla/"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"*.yaml": "home-assistant"
+		}
+	}
+}
