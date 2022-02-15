@@ -1,0 +1,1423 @@
+homeassistant:
+  customize:
+    # These customizations are temporary until the modern templates support setting friendly name
+    ################  Electrical Whole Home ###############
+    sensor.electric_home_total_power:
+      friendly_name: "Electric Home Total Power"
+    sensor.electric_home_voltage:
+      friendly_name: "Electric Home Voltage"
+    sensor.electric_home_l1_voltage:
+      friendly_name: "Electric Home L1 Voltage"
+    sensor.electric_home_l2_voltage:
+      friendly_name: "Electric Home L2 Voltage"
+    ################  Electrical Panel #1  ###############
+    sensor.p1_00_total_power:
+      friendly_name: "Electric Home P1 Total Power"
+    sensor.p1_01_first_floor_hvac_ahu_1_power:
+      friendly_name: "First Floor HVAC AHU 1 Power"
+    sensor.p1_02_first_floor_hvac_ahu_2_power:
+      friendly_name: "First Floor HVAC AHU 2 Power"
+    sensor.p1_03_kitchen_gfci_power:
+      friendly_name: "Kitchen GFCI Power"
+    sensor.p1_04_office_power:
+      friendly_name: "Office Power"
+    sensor.p1_04_v_office_floor_light_power:
+      friendly_name: "Office Floor Light Power"
+    sensor.p1_04_v_office_computer_outlet_power:
+      friendly_name: "Office Computer Outlet Power"
+    sensor.p1_05_kitchen_refrigerator_power:
+      friendly_name: "Kitchen Refrigerator Power"
+    sensor.p1_06_kitchen_dishwasher_power:
+      friendly_name: "Kitchen Dishwasher Power"
+    sensor.p1_07_garage_subpanel_power:
+      friendly_name: "Garage Subpanel L1 Power"
+    sensor.p1_08_garage_subpanel_power:
+      friendly_name: "Garage Subpanel L2 Power"
+    sensor.p1_09_first_floor_hvac_hpu_power:
+      friendly_name: "First Floor HVAC HPU Power"
+    sensor.p1_10_second_floor_hvac_hpu_power:
+      friendly_name: "Second Floor HVAC HPU Power"
+    sensor.p1_11_bsmt_utility_light_power:
+      friendly_name: "Basement Utility Light Power"
+    sensor.p1_11_v_utility_room_light_power: #Shelly Switch Power
+      friendly_name: "Utility Room Light Switch Power"
+    sensor.p1_11_v_basement_stair_light_switch_power: #Shelly Switch Power
+      friendly_name: "Basement Stair Light Switch Power"
+    sensor.p1_12_sump_power:
+      friendly_name: "Sump Pump Power"
+    sensor.p1_12_v_radon_fan_power:
+      friendly_name: "Radon Fan Power"
+    sensor.p1_13_entry_and_finish_bsmt_power:
+      friendly_name: "Entry and Finish Bsmt Power"
+    sensor.p1_13_v_kitchen_island_light_power:
+      friendly_name: "Kitchen Island Light Power"
+    sensor.p1_13_v_kitchen_sink_light_power:
+      friendly_name: "Kitchen Sink Light Power"
+    sensor.p1_13_v_entry_light_power:
+      friendly_name: "Entry Light Power"
+    sensor.p1_13_v_stairway_light_power:
+      friendly_name: "Stairway Light Power"
+    sensor.p1_13_v_play_area_light_switch_power: #Shelly Switch Power
+      friendly_name: "Play Area Light Switch Power"
+    sensor.p1_13_v_family_room_light_switch_power: #Shelly Switch Power
+      friendly_name: "Family Room Light Switch Power"
+    sensor.p1_13_v_basement_floor_light_power:
+      friendly_name: "Basement Floor Light Power"
+    sensor.p1_13_v_basement_hvac_space_heater_power:
+      friendly_name: "Basement Space Heater Power"
+    sensor.p1_13_v_front_door_light_power:
+      friendly_name: "Front Door Light Power"
+    sensor.p1_13_v_landscape_light_power:
+      friendly_name: "Landscape Light Power"
+    sensor.p1_14_pergola_power:
+      friendly_name: "Pergola Power"
+    sensor.p1_14_v_patio_light_power:
+      friendly_name: "Patio Light Power"
+    sensor.p1_15_master_dryer_power:
+      friendly_name: "Master Dryer Power"
+    sensor.p1_16_master_washer_power:
+      friendly_name: "Master Washer Power"
+    sensor.p1_99_v_water_heater_2_power:
+      friendly_name: "Water Heater 2 Power"
+    sensor.p1_99_balance_power:
+      friendly_name: "P1 Balance Power"
+    sensor.p1_99_v_living_room_light_power:
+      friendly_name: "Living Room Light Power"
+    sensor.p1_99_v_living_room_fan_power:
+      friendly_name: "Living Room Fan Power"
+    sensor.p1_99_v_kitchen_light_power:
+      friendly_name: "Kitchen Light Power"
+    sensor.p1_99_v_living_room_floor_light_power:
+      friendly_name: "Living Room Floor Light Power"
+    sensor.p1_99_v_living_room_tv_light_power:
+      friendly_name: "Living Room TV Light Power"
+    sensor.p1_99_v_screen_room_light_power:
+      friendly_name: "Screen Room Light Power"
+    sensor.p1_99_v_screen_room_fan_power:
+      friendly_name: "Screen Room Fan Power"
+    sensor.p1_99_v_beer_fridge_power:
+      friendly_name: "Beer Fridge Power"
+    ################  Electrical Panel #2  ###############
+    sensor.p2_00_total_power:
+      friendly_name: "Electric Home P2 Total Power"
+    sensor.p2_01_bsmt_dryer_power:
+      friendly_name: "Basement Dryer Power"
+    sensor.p2_02_kitchen_cooktop_power:
+      friendly_name: "Kitchen Cooktop Power"
+    sensor.p2_03_first_floor_bath_gfci_power:
+      friendly_name: "First Floor Bath GFCI Power"
+    sensor.p2_04_kitchen_gfci_power:
+      friendly_name: "Kitchen GFCI Power"
+    sensor.p2_05_garage_a_outlets_power:
+      friendly_name: "Garage A Outlets Power"
+    sensor.p2_06_bsmt_washer_power:
+      friendly_name: "Basement Washer Power"
+    sensor.p2_07_pool_subpanel_power:
+      friendly_name: "Pool Subpanel L1 Power"
+    sensor.p2_07_v_pool_heater_power:
+      friendly_name: "Pool Heater Power"
+    sensor.p2_08_pool_subpanel_power:
+      friendly_name: "Pool Subpanel L2 Power"
+    sensor.p2_08_v_pool_pump_power:
+      friendly_name: "Pool Pump Power"
+    sensor.p2_09_second_floor_hvac_ahu_power:
+      friendly_name: "Second Floor HVAC AHU Power"
+    sensor.p2_10_kitchen_oven_power:
+      friendly_name: "Kitchen Oven Power"
+    sensor.p2_11_second_floor_bath_gfci_power:
+      friendly_name: "Second Floor Bath GFCI Power"
+    sensor.p2_12_dining_room_power:
+      friendly_name: "Dining Room Power"
+    sensor.p2_13_bsmt_utility_gfci_power: # Remove Techrack Power
+      friendly_name: "Basement Utility GFCI Power"
+    sensor.p2_13_v_techrack_ups_power:
+      friendly_name: "TechRack UPS Power"
+    sensor.p2_13_v_techrack_receiver_power:
+      friendly_name: "TechRack Receiver Power"
+    sensor.p2_13_v_techrack_server_power:
+      friendly_name: "TechRack Server Power"
+    sensor.p2_13_v_techrack_network_power:
+      friendly_name: "TechRack Network Power"
+    sensor.p2_13_v_recirc_pump_power:
+      friendly_name: "Recirc Pump Power"
+    sensor.p2_13_v_basement_freezer_power:
+      friendly_name: "Basement Freezer Power"
+    sensor.p2_14_fl1_misc_light_power: # Review later
+      friendly_name: "FL1 Misc Lights Power"
+    sensor.p2_14_v_dining_room_light_power:
+      friendly_name: "Dining Room Light Power"
+    sensor.p2_14_v_mudroom_light_power:
+      friendly_name: "Mudroom Light Power"
+    sensor.p2_14_v_garage_man_door_light_power:
+      friendly_name: "Garage Man Door Light Power"
+    sensor.p2_14_v_mudroom_door_light_power:
+      friendly_name: "Mudroom Door Light Power"
+    sensor.p2_15_master_bed_light_power:
+      friendly_name: "Master Bedroom Light Power"
+    sensor.p2_15_v_bedroom_fan_power:
+      friendly_name: "Bedroom Fan Power"
+    sensor.p2_15_v_bedroom_light_power:
+      friendly_name: "Bedroom Light Power"
+    sensor.p2_16_master_bath_light_power:
+      friendly_name: "Master Bath Light Power"
+    sensor.p2_99_v_water_heater_1_power:
+      friendly_name: "Water Heater 1 Power"
+    sensor.p2_99_balance_power:
+      friendly_name: "P2 Balance Power"
+    sensor.p2_99_v_kadens_light_power:
+      friendly_name: "Kadens Light Power"
+    sensor.p2_99_v_kadens_floor_light_power:
+      friendly_name: "Kadens Floor Light Power"
+    sensor.p2_99_v_kadens_smart_outlet_power:
+      friendly_name: "Kadens Smart Outlet Power"
+    sensor.p2_99_v_kadens_night_light_power:
+      friendly_name: "Kadens Nightlight Power"
+    sensor.p2_99_v_kadens_fan_power:
+      friendly_name: "Kadens Fan Power"
+    sensor.p2_99_v_paytons_light_power:
+      friendly_name: "Paytons Light Power"
+    sensor.p2_99_v_paytons_smart_outlet_power:
+      friendly_name: "Paytons Smart Outlet Power"
+    sensor.p2_99_v_paytons_fan_power:
+      friendly_name: "Paytons Fan Power"
+    sensor.p2_99_v_under_cabinet_light_power:
+      friendly_name: "Under Cabinet Light Power"
+    sensor.p2_99_v_veranda_flood_light_power:
+      friendly_name: "Veranda Flood Light Power"
+    sensor.p2_99_v_veranda_light_power:
+      friendly_name: "Veranda Light Power"
+    sensor.p2_99_v_veranda_fan_power:
+      friendly_name: "Veranda Fan Power"
+    sensor.p2_99_v_bonus_room_light_power:
+      friendly_name: "Bonus Room Light Power"
+    sensor.p2_99_v_garage_door_light_power:
+      friendly_name: "Garage Door Light Power"
+    sensor.p2_99_v_garage_light_power:
+      friendly_name: "Garage Light Power"
+    ################  Device Groups  ###############
+    sensor.water_heater_group_total_power:
+      friendly_name: "Water Heater Group Total Power"
+    sensor.light_group_total_power:
+      friendly_name: "Light Group Total Power"
+    sensor.hvac_group_total_power:
+      friendly_name: "HVAC Group Total Power"
+    sensor.kitchen_appliance_group_total_power:
+      friendly_name: "Kitchen Appliance Group Total Power"
+    sensor.other_appliance_group_total_power:
+      friendly_name: "Other Appliance Group Total Power"
+    sensor.washer_dryer_group_total_power:
+      friendly_name: "Washer Dryer Group Total Power"
+    sensor.technology_group_total_power:
+      friendly_name: "Technology Group Total Power"
+    sensor.garage_group_total_power:
+      friendly_name: "Garage Group Total Power"
+    sensor.pool_group_total_power:
+      friendly_name: "Pool Group Total Power"
+    sensor.other_group_total_power: # Metered power but not in a category above
+      friendly_name: "Other Group Total Power"
+    sensor.electric_home_total_energy:
+      friendly_name: "Electric Home Total Energy"
+    sensor.p1_00_total_energy:
+      friendly_name: "Electric Home P1 Total Energy"
+    sensor.p2_00_total_energy:
+      friendly_name: "Electric Home P2 Total Energy"
+    sensor.water_heater_group_total_energy:
+      friendly_name: "Water Heater Group Total Energy"
+    sensor.light_group_total_energy:
+      friendly_name: "Light Group Total Energy"
+    sensor.hvac_group_total_energy:
+      friendly_name: "HVAC Group Total Energy"
+    sensor.kitchen_appliance_group_total_energy:
+      friendly_name: "Kitchen Appliance Group Total Energy"
+    sensor.other_appliance_group_total_energy:
+      friendly_name: "Other Appliance Group Total Energy"
+    sensor.washer_dryer_group_total_energy:
+      friendly_name: "Washer Dryer Group Total Energy"
+    sensor.technology_group_total_energy:
+      friendly_name: "Technology Group Total Energy"
+    sensor.garage_group_total_energy:
+      friendly_name: "Garage Group Total Energy"
+    sensor.pool_group_total_energy:
+      friendly_name: "Pool Group Total Energy"
+    sensor.other_group_total_energy: # Metered power but not in a category above
+      friendly_name: "Other Group Total Energy"
+
+input_number:
+  energy_kwh_cost:
+    name: Energy kWh Cost
+    icon: mdi:currency-usd
+    mode: box
+    unit_of_measurement: "USD/kWh"
+    min: 0.001
+    max: 1
+
+template:
+  ############# Modern template Format #############
+  # Left tmp_friendly_name for easier identification and hoping to be able to easily modify later rather than
+  # having to use of the customization for those names
+  - trigger:
+      # IMPORTANT - You must use some time pattern at least for at least the calculation of the groups, otherwise, it
+      # recalculates that whole group every time one of the sensors changes.  This could end up being many times per
+      # second which will signficantly impact data size and performance due to the number of state changes.
+      # NOTE - This approach does somewhat impact the accuracy of your data since it is not averaging the data in
+      # between the time periods, but it will still end up being relatively close and give you a good data around
+      # of energy usage
+      - platform: time_pattern
+        seconds: "/5" #Only pull electric data every 5 seconds to minimize data / performance impact
+      - platform: homeassistant
+        event: start
+      - platform: event
+        event_type: "call_service"
+        event_data:
+          domain: "template"
+          service: "reload"
+    sensor:
+      ################  Electrical Panel #1 Voltage ###############
+      - name: electric_home_voltage
+        attributes:
+          tmp_friendly_name: "Electric Home Voltage"
+          <<: &voltage_sensor_force_update
+            min_last_updated: "{{ now().minute }}" #Forces reporting every 1 min
+        <<: &voltage_sensor_defaults
+          device_class: voltage
+          unit_of_measurement: "V"
+          state_class: measurement
+        state: "{{ (states('sensor.electric_p1_phase_a_voltage') | float(0) + states('sensor.electric_p1_phase_b_voltage') | float(0)) | round(1) }}"
+      - name: electric_home_l1_voltage
+        attributes:
+          tmp_friendly_name: "Electric Home Leg 1 Voltage"
+          <<: *voltage_sensor_force_update
+        <<: *voltage_sensor_defaults
+        state: "{{ (states('sensor.electric_p1_phase_a_voltage') | float(0)) | round(1) }}"
+      - name: electric_home_l2_voltage
+        attributes:
+          tmp_friendly_name: "Electric Home Leg 2 Voltage"
+          <<: *voltage_sensor_force_update
+        <<: *voltage_sensor_defaults
+        state: "{{ (states('sensor.electric_p1_phase_b_voltage') | float(0)) | round(1) }}"
+
+      ################  Electrical Whole Home Power ###############
+      - name: electric_home_total_power
+        attributes:
+          tmp_friendly_name: "Electric Home Total Power"
+          <<: &power_sensor_force_update
+            two_min_update: "{% if now().minute is divisibleby(2) %} {{now().minute}} {% else %} {{now().minute - 1 }} {% endif %}" #Ensure updates occur at least every 2 min for influx reporting
+        state: "{{ (states('sensor.p1_00_total_power') | float(0) + states('sensor.p2_00_total_power') | float(0)) | round(1)  }}"
+        <<: &power_sensor_defaults
+          device_class: power
+          unit_of_measurement: "W"
+          state_class: measurement
+
+      ################  Electrical Panel #1 Power ###############
+      # Note - Subtracting out power in the templates is not perfect.  The circuits get updated every x seconds from Emporia vue, but the change to the virtual circuits happens immediately.
+      # Currently handling by simply not allowing the total power of the circuit to go negative which is why max() filter is in use. (i.e. 0 is bigger than negative so max will return that)
+      - name: p1_00_total_power
+        attributes:
+          tmp_friendly_name: "Electric Panel 1 Total Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.electric_p1_total_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p1_01_first_floor_hvac_ahu_1_power
+        attributes:
+          tmp_friendly_name: "First Floor HVAC AHU 1 Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.fl1_air_handler_p1_1_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p1_02_first_floor_hvac_ahu_2_power
+        attributes:
+          tmp_friendly_name: "First Floor HVAC AHU 2 Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.fl1_air_handler_p1_2_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p1_03_kitchen_gfci_power
+        attributes:
+          tmp_friendly_name: "Kitchen GFCI Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.kitchen_gfci_p1_3_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p1_04_office_power
+        attributes:
+          tmp_friendly_name: "Office Power"
+          <<: *power_sensor_force_update
+        state: >-
+          {% set virtualpower = expand('group.p1_04_v_power') | rejectattr('state', 'in', ['unavailable', 'unknown']) | map(attribute='state') | map('float') | sum | round(2) %}
+          {{ max( (states('sensor.office_p1_4_power') | float(0) - virtualpower) | round(1), 0.0 ) }}
+        <<: *power_sensor_defaults
+      - name: p1_04_v_office_floor_light_power
+        attributes:
+          tmp_friendly_name: "Office Floor Light Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( (5 * 8 * state_attr('light.office_floor_light','brightness') | float(0) / 255) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p1_04_v_office_computer_outlet_power
+        attributes:
+          tmp_friendly_name: "Office Computer Outlet Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.office_computer_outlet_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p1_05_kitchen_refrigerator_power
+        attributes:
+          tmp_friendly_name: "Kitchen Refrigerator Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.kitchen_refrigerator_p1_5_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p1_06_kitchen_dishwasher_power
+        attributes:
+          tmp_friendly_name: "Kitchen Dishwasher Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.dishwasher_p1_6_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p1_07_garage_subpanel_power
+        attributes:
+          tmp_friendly_name: "Garage Subpanel L1 Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.garage_subpanel_p1_7_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p1_08_garage_subpanel_power
+        attributes:
+          tmp_friendly_name: "Garage Subpanel L2 Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.garage_subpanel_p1_8_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p1_09_first_floor_hvac_hpu_power
+        attributes:
+          tmp_friendly_name: "First Floor HVAC HPU Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.fl1_heat_pump_p1_9_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p1_10_second_floor_hvac_hpu_power
+        attributes:
+          tmp_friendly_name: "Second Floor HVAC HPU Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.fl2_heat_pump_p1_10_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p1_11_bsmt_utility_light_power
+        attributes:
+          tmp_friendly_name: "Basement Utility Light Power"
+          <<: *power_sensor_force_update
+        state: >-
+          {% set virtualpower = expand('group.p1_11_v_power') | rejectattr('state', 'in', ['unavailable', 'unknown']) | map(attribute='state') | map('float') | sum | round(2) %}
+          {{ max( (states('sensor.bsmt_utility_light_p1_11_power') | float(0) - virtualpower) | round(1), 0.0 ) }}
+        <<: *power_sensor_defaults
+      - name: p1_11_v_utility_room_light_power #Shelly Switch Power
+        attributes:
+          tmp_friendly_name: "Utility Room Light Switch Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.utility_room_light_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p1_11_v_basement_stair_light_switch_power #Shelly Switch Power
+        attributes:
+          tmp_friendly_name: "Basement Stair Light Switch Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.basement_stair_light_switch_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p1_12_sump_power
+        attributes:
+          tmp_friendly_name: "Sump Pump Power"
+        state: >-
+          {% set virtualpower = expand('group.p1_12_v_power') | rejectattr('state', 'in', ['unavailable', 'unknown']) | map(attribute='state') | map('float') | sum | round(2) %}
+          {{ max( (states('sensor.sump_and_radon_p1_12_power') | float(0) - virtualpower) | round(1), 0.0 ) }}
+        <<: *power_sensor_defaults
+      - name: p1_12_v_radon_fan_power
+        attributes:
+          tmp_friendly_name: "Radon Fan Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( (68 | float(0)) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p1_13_entry_and_finish_bsmt_power
+        attributes:
+          tmp_friendly_name: "Entry and Finish Bsmt Power"
+          <<: *power_sensor_force_update
+        state: >-
+          {% set virtualpower = expand('group.p1_13_v_power') | rejectattr('state', 'in', ['unavailable', 'unknown']) | map(attribute='state') | map('float') | sum | round(2) %}
+          {{ max( (states('sensor.entry_and_finish_bsmt_p1_13_power') | float(0) - virtualpower) | round(1), 0.0 ) }}
+        <<: *power_sensor_defaults
+      - name: p1_13_v_kitchen_island_light_power
+        attributes:
+          tmp_friendly_name: "Kitchen Island Light Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( (2 * 8 * state_attr('light.kitchen_island_light','brightness') | float(0) / 255) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p1_13_v_kitchen_sink_light_power
+        attributes:
+          tmp_friendly_name: "Kitchen Sink Light Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( (1 * 8 * state_attr('light.kitchen_sink_light','brightness') | float(0) / 255) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p1_13_v_entry_light_power
+        attributes:
+          tmp_friendly_name: "Entry Light Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( (3 * 3 * state_attr('light.entry_light','brightness') | float(0) / 255) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p1_13_v_stairway_light_power
+        attributes:
+          tmp_friendly_name: "Stairway Light Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( (4 * 8 * state_attr('light.stairway_light','brightness') | float(0) / 255) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p1_13_v_play_area_light_switch_power #Shelly Switch Power
+        attributes:
+          tmp_friendly_name: "Play Area Light Switch Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.play_area_light_switch_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p1_13_v_family_room_light_switch_power #Shelly Switch Power
+        attributes:
+          tmp_friendly_name: "Family Room Light Switch Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.family_room_light_switch_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p1_13_v_basement_floor_light_power
+        attributes:
+          tmp_friendly_name: "Basement Floor Light Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( (2 * 8 * state_attr('light.basement_floor_light','brightness') | float(0) / 255) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p1_13_v_basement_hvac_space_heater_power
+        attributes:
+          tmp_friendly_name: "Basement Space Heater Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.basement_space_heater_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p1_13_v_front_door_light_power
+        attributes:
+          tmp_friendly_name: "Front Door Light Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( (3 * 3 * state_attr('light.front_door_light','brightness') | float(0) / 255) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p1_13_v_landscape_light_power
+        attributes:
+          tmp_friendly_name: "Landscape Light Power"
+          <<: *power_sensor_force_update
+        state: "{% if is_state('switch.landscape_lighting','on') %}{{45| float(0) | round(1)}}{% else %}{{0 | float(0) | round(1)}}{% endif %}"
+        <<: *power_sensor_defaults
+      - name: p1_14_pergola_power
+        attributes:
+          tmp_friendly_name: "Pergola Power"
+          <<: *power_sensor_force_update
+        state: >-
+          {% set virtualpower = expand('group.p1_14_v_power') | rejectattr('state', 'in', ['unavailable', 'unknown']) | map(attribute='state') | map('float') | sum | round(2) %}
+          {{ max( (states('sensor.pergola_p1_14_power') | float(0) - virtualpower) | round(1), 0.0 ) }}
+        <<: *power_sensor_defaults
+      - name: p1_14_v_patio_light_power
+        attributes:
+          tmp_friendly_name: "Patio Light Power"
+          <<: *power_sensor_force_update
+        state: "{% if is_state('switch.patio_lighting','on') %}{{120 | float(0) | round(1)}}{% else %}{{0 | float(0) | round(1)}}{% endif %}"
+        <<: *power_sensor_defaults
+      - name: p1_15_master_dryer_power
+        attributes:
+          tmp_friendly_name: "Master Dryer Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.master_dryer_p1_15_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p1_16_master_washer_power
+        attributes:
+          tmp_friendly_name: "Master Washer Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.master_washer_p1_16_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p1_99_balance_power # This is what remains after all individually metered power is accounted for
+        attributes:
+          tmp_friendly_name: "P1 Balance Power"
+          <<: *power_sensor_force_update
+        state: >-
+          {% set virtualpower = expand('group.p1_99_v_power') | rejectattr('state', 'in', ['unavailable', 'unknown']) | map(attribute='state') | map('float') | sum | round(2) %}
+          {{ max( (states('sensor.electric_p1_balance_power') | float(0) - virtualpower) | round(1), 0.0 ) }}
+        <<: *power_sensor_defaults
+      - name: p1_99_v_water_heater_2_power
+        attributes:
+          tmp_friendly_name: "Water Heater 2 Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( (2 * states('sensor.x2_water_heater_2_power') | float(0)) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p1_99_v_living_room_light_power
+        attributes:
+          tmp_friendly_name: "Living Room Light Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( (2 * 8 * state_attr('light.living_room_light','brightness') | float(0) / 255) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p1_99_v_living_room_fan_power
+        attributes:
+          tmp_friendly_name: "Living Room Fan Power"
+          <<: *power_sensor_force_update
+        state: "{% if is_state('switch.living_room_fan','on') %}{{70 | float(0) | round(1)}}{% else %}{{0 | float(0) | round(1)}}{% endif %}"
+        <<: *power_sensor_defaults
+      - name: p1_99_v_kitchen_light_power
+        attributes:
+          tmp_friendly_name: "Kitchen Light Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( (6 * 8 * state_attr('light.kitchen_light','brightness') | float(0) / 255) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p1_99_v_living_room_floor_light_power
+        attributes:
+          tmp_friendly_name: "Living Room Floor Light Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( (2 * 8 * state_attr('light.living_room_floor_light','brightness') | float(0) / 255) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p1_99_v_screen_room_light_power
+        attributes:
+          tmp_friendly_name: "Screen Room Light Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( (2 * 60 * state_attr('light.screen_room_light','brightness') | float(0) / 255) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p1_99_v_screen_room_fan_power
+        attributes:
+          tmp_friendly_name: "Screen Room Fan Power"
+          <<: *power_sensor_force_update
+        state: "{% if is_state('switch.screen_room_fan','on') %}{{70 | float(0) | round(1)}}{% else %}{{0 | float(0) | round(1)}}{% endif %}"
+        <<: *power_sensor_defaults
+      - name: p1_99_v_beer_fridge_power
+        attributes:
+          tmp_friendly_name: "Beer Fridge Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.beer_fridge_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+
+      ################  Electrical Panel #2 Power  ###############
+      - name: p2_00_total_power
+        attributes:
+          tmp_friendly_name: "Electric Panel 2 Total Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.electric_p2_total_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p2_01_bsmt_dryer_power
+        attributes:
+          tmp_friendly_name: "Basement Dryer Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.bsmt_dryer_p2_1_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p2_02_kitchen_cooktop_power
+        attributes:
+          tmp_friendly_name: "Kitchen Cooktop Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.cooktop_p2_2_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p2_03_first_floor_bath_gfci_power
+        attributes:
+          tmp_friendly_name: "First Floor Bath GFCI Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.fl1_bath_gfci_p2_3_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p2_04_kitchen_gfci_power
+        attributes:
+          tmp_friendly_name: "Kitchen GFCI Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.kitchen_gfci_2_p2_4_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p2_05_garage_a_outlets_power
+        attributes:
+          tmp_friendly_name: "Garage A Outlets Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.garage_a_outlets_p2_5_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p2_06_bsmt_washer_power
+        attributes:
+          tmp_friendly_name: "Basement Washer Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.bsmt_washer_p2_6_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p2_07_pool_subpanel_power # special configuration to calculate pool equipment power
+        attributes:
+          tmp_friendly_name: "Pool Subpanel L1 Power"
+          <<: *power_sensor_force_update
+        state: "{{ 0.0 }}"
+        <<: *power_sensor_defaults
+      - name: p2_07_v_pool_heater_power # Assume all power to L1 is for the heater.  Double it to account for 220V then remove it from L2.
+        attributes:
+          tmp_friendly_name: "Pool Heater Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( (2 * states('sensor.pool_subpanel_p2_7_power') | float(0)) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p2_08_pool_subpanel_power
+        attributes:
+          tmp_friendly_name: "Pool Subpanel L2 Power"
+          <<: *power_sensor_force_update
+        state: "{{ 0.0 }}"
+        <<: *power_sensor_defaults
+      - name: p2_08_v_pool_pump_power # Remove the load of the heater and assume the rest is the pool pump
+        attributes:
+          tmp_friendly_name: "Pool Pump Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( (states('sensor.pool_subpanel_p2_8_power') | float(0) - states('sensor.pool_subpanel_p2_7_power') | float(0)) | round(1), 0.0 ) }}" #To make this right, need to rework pool power to include chlorinator on p2_7
+        <<: *power_sensor_defaults
+      - name: p2_09_second_floor_hvac_ahu_power
+        attributes:
+          tmp_friendly_name: "Second Floor HVAC AHU Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.fl2_air_handler_p2_9_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p2_10_kitchen_oven_power
+        attributes:
+          tmp_friendly_name: "Kitchen Oven Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.oven_p2_10_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p2_11_second_floor_bath_gfci_power
+        attributes:
+          tmp_friendly_name: "Second Floor Bath GFCI Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.fl2_bath_gfci_p2_11_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p2_12_dining_room_power
+        attributes:
+          tmp_friendly_name: "Dining Room Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.dining_room_p2_12_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p2_13_bsmt_utility_gfci_power # Remove Techrack Power
+        attributes:
+          tmp_friendly_name: "Basement Utility GFCI Power"
+          <<: *power_sensor_force_update
+        state: >-
+          {% set virtualpower = expand('group.p2_13_v_power') | rejectattr('state', 'in', ['unavailable', 'unknown']) | map(attribute='state') | map('float') | sum | round(2) %}
+          {{ max( (states('sensor.bsmt_utility_gfci_p2_13_power') | float(0) - virtualpower) | round(1), 0.0 ) }}
+        <<: *power_sensor_defaults
+      - name: p2_13_v_techrack_ups_power
+        attributes:
+          tmp_friendly_name: "TechRack UPS Power"
+          <<: *power_sensor_force_update
+        state: >-
+          {% set virtualpower = expand('group.p2_13_v_techrack_power') | rejectattr('state', 'in', ['unavailable', 'unknown']) | map(attribute='state') | map('float') | sum | round(2) %}
+          {{ max( (states('sensor.techrack_ups_current_real_power') | float(0) - virtualpower) | round(1), 0.0 ) }}
+        <<: *power_sensor_defaults
+      - name: p2_13_v_techrack_receiver_power
+        attributes:
+          tmp_friendly_name: "TechRack Receiver Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.techrack_receiver_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p2_13_v_techrack_server_power
+        attributes:
+          tmp_friendly_name: "TechRack Server Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.techrack_server_outlet_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p2_13_v_techrack_network_power
+        attributes:
+          tmp_friendly_name: "TechRack Network Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.techrack_network_outlet_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p2_13_v_recirc_pump_power
+        attributes:
+          tmp_friendly_name: "Recirc Pump Power"
+          <<: *power_sensor_force_update
+        state: "{% if is_state('switch.recirc_pump','on') %}{{30 | float(0) | round(1)}}{% else %}{{0 | float(0) | round(1)}}{% endif %}"
+        <<: *power_sensor_defaults
+      - name: p2_13_v_basement_freezer_power
+        attributes:
+          tmp_friendly_name: "Basement Freezer Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.basement_freezer_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p2_14_fl1_misc_light_power # Review later
+        attributes:
+          tmp_friendly_name: "FL1 Misc Lights Power"
+          <<: *power_sensor_force_update
+        state: >-
+          {% set virtualpower = expand('group.p2_14_v_power') | rejectattr('state', 'in', ['unavailable', 'unknown']) | map(attribute='state') | map('float') | sum | round(2) %}
+          {{ max( (states('sensor.fl1_misc_light_p2_14_power') | float(0) - virtualpower) | round(1), 0.0 ) }}
+        <<: *power_sensor_defaults
+      - name: p2_14_v_dining_room_light_power
+        attributes:
+          tmp_friendly_name: "Dining Room Light Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( (4 * 8 * state_attr('light.dining_room_light','brightness') | float(0) / 255) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p2_14_v_mudroom_light_power
+        attributes:
+          tmp_friendly_name: "Mudroom Light Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( (2 * 8 * state_attr('light.mudroom_light','brightness') | float(0) / 255) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p2_14_v_garage_man_door_light_power
+        attributes:
+          tmp_friendly_name: "Garage Man Door Light Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( (1 * 8 * state_attr('light.garage_man_door_light','brightness') | float(0) / 255) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p2_14_v_mudroom_door_light_power
+        attributes:
+          tmp_friendly_name: "Mudroom Door Light Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( (1 * 8 * state_attr('light.mudroom_door_light','brightness') | float(0) / 255) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p2_15_master_bed_light_power
+        attributes:
+          tmp_friendly_name: "Master Bedroom Light Power"
+          <<: *power_sensor_force_update
+        state: >-
+          {% set virtualpower = expand('group.p2_15_v_power') | rejectattr('state', 'in', ['unavailable', 'unknown']) | map(attribute='state') | map('float') | sum | round(2) %}
+          {{ max( (states('sensor.master_bed_light_p2_15_power') | float(0) - virtualpower) | round(1), 0.0 ) }}
+        <<: *power_sensor_defaults
+      - name: p2_15_v_bedroom_fan_power
+        attributes:
+          tmp_friendly_name: "Bedroom Fan Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( (70 * state_attr('fan.bedroom_fan','brightness') | float(0) / 255) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p2_15_v_bedroom_light_power
+        attributes:
+          tmp_friendly_name: "Bedroom Light Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( (2 * 8 * state_attr('light.bedroom_light','brightness') | float(0) / 255) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p2_16_master_bath_light_power
+        attributes:
+          tmp_friendly_name: "Master Bath Light Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.master_bath_light_p2_16_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p2_99_balance_power # This is what remains after all individually metered power is accounted for
+        attributes:
+          tmp_friendly_name: "P2 Balance Power"
+          <<: *power_sensor_force_update
+        state: >-
+          {% set virtualpower = expand('group.p2_99_v_power') | rejectattr('state', 'in', ['unavailable', 'unknown']) | map(attribute='state') | map('float') | sum | round(2) %}
+          {{ max( (states('sensor.electric_p2_balance_power') | float(0) - virtualpower) | round(1), 0.0 ) }}
+        <<: *power_sensor_defaults
+      - name: p2_99_v_water_heater_1_power
+        attributes:
+          tmp_friendly_name: "Water Heater 1 Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( (2 * states('sensor.x2_water_heater_1_power') | float(0)) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p2_99_v_kadens_light_power
+        attributes:
+          tmp_friendly_name: "Kadens Light Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( (1 * 8 * state_attr('light.kadens_light','brightness') | float(0) / 255) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p2_99_v_kadens_floor_light_power
+        attributes:
+          tmp_friendly_name: "Kadens Floor Light Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.kadens_floor_light_outlet_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p2_99_v_kadens_smart_outlet_power
+        attributes:
+          tmp_friendly_name: "Kadens Smart Outlet Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.kadens_smart_outlet_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p2_99_v_kadens_night_light_power
+        attributes:
+          tmp_friendly_name: "Kadens Nightlight Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( (1 * 8 * state_attr('light.kadens_night_light','brightness') | float(0) / 255) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p2_99_v_kadens_fan_power
+        attributes:
+          tmp_friendly_name: "Kadens Fan Power"
+          <<: *power_sensor_force_update
+        state: "{% if is_state('switch.kadens_fan','on') %}{{70 | float(0) | round(1)}}{% else %}{{0 | float(0) | round(1)}}{% endif %}"
+        <<: *power_sensor_defaults
+      - name: p2_99_v_paytons_light_power
+        attributes:
+          tmp_friendly_name: "Paytons Light Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( (1 * 8 * state_attr('light.paytons_light','brightness') | float(0) / 255) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p2_99_v_paytons_smart_outlet_power
+        attributes:
+          tmp_friendly_name: "Paytons Smart Outlet Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( states('sensor.paytons_smart_outlet_power') | float(0) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p2_99_v_paytons_fan_power
+        attributes:
+          tmp_friendly_name: "Paytons Fan Power"
+          <<: *power_sensor_force_update
+        state: "{% if is_state('switch.paytons_fan','on') %}{{70 | float(0) | round(1)}}{% else %}{{0 | float(0) | round(1)}}{% endif %}"
+        <<: *power_sensor_defaults
+      - name: p2_99_v_under_cabinet_light_power
+        attributes:
+          tmp_friendly_name: "Under Cabinet Light Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( (2 * 8 * state_attr('light.under_cabinet_light','brightness') | float(0) / 255) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p2_99_v_veranda_flood_light_power
+        attributes:
+          tmp_friendly_name: "Veranda Flood Light Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( (6 * 60 * state_attr('light.veranda_flood_light','brightness') | float(0) / 255) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p2_99_v_veranda_light_power
+        attributes:
+          tmp_friendly_name: "Veranda Light Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( (6 * 60 * state_attr('light.veranda_light','brightness') | float(0) / 255) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p2_99_v_veranda_fan_power
+        attributes:
+          tmp_friendly_name: "Veranda Fan Power"
+          <<: *power_sensor_force_update
+        state: "{% if is_state('switch.veranda_fan','on') %}{{210 | float(0) | round(1)}}{% else %}{{0 | float(0) | round(1)}}{% endif %}"
+        <<: *power_sensor_defaults
+      - name: p2_99_v_bonus_room_light_power
+        attributes:
+          tmp_friendly_name: "Bonus Room Light Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( (7 * 8 * state_attr('light.bonus_room_light','brightness') | float(0) / 255) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p2_99_v_garage_door_light_power
+        attributes:
+          tmp_friendly_name: "Garage Door Light Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( (3 * 8 * state_attr('light.garage_door_light','brightness') | float(0) / 255) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+      - name: p2_99_v_garage_light_power
+        attributes:
+          tmp_friendly_name: "Garage Light Power"
+          <<: *power_sensor_force_update
+        state: "{{ max( (3 * 12 * state_attr('light.garage_light','brightness') | float(0) / 255) | round(1), 0.0 ) }}"
+        <<: *power_sensor_defaults
+
+      ################  Device Group Power Sensors sensor.xxx_group_total_power  ###############
+      ################  Add power of each group member device to create total  ###############
+      - name: water_heater_group_total_power
+        icon: mdi:water-boiler
+        state: >-
+          {% set virtualpower = expand('group.water_heater_group_total_power') | rejectattr('state', 'in', ['unavailable', 'unknown']) | map(attribute='state') | map('float') | sum | round(2) %}
+          {{ max( virtualpower | round(1), 0.0 ) }}
+        attributes:
+          tmp_friendly_name: "Water Heater Group Total Power"
+          <<: *power_sensor_force_update
+        <<: *power_sensor_defaults
+      - name: light_group_total_power
+        icon: mdi:lightbulb-group
+        state: >-
+          {% set virtualpower = expand('group.light_group_total_power') | rejectattr('state', 'in', ['unavailable', 'unknown']) | map(attribute='state') | map('float') | sum | round(2) %}
+          {{ max( virtualpower | round(1), 0.0 ) }}
+        attributes:
+          tmp_friendly_name: "Light Group Total Power"
+          <<: *power_sensor_force_update
+        <<: *power_sensor_defaults
+      - name: hvac_group_total_power
+        icon: mdi:hvac
+        state: >-
+          {% set virtualpower = expand('group.hvac_group_total_power') | rejectattr('state', 'in', ['unavailable', 'unknown']) | map(attribute='state') | map('float') | sum | round(2) %}
+          {{ max( virtualpower | round(1), 0.0 ) }}
+        attributes:
+          tmp_friendly_name: "HVAC Group Total Power"
+          <<: *power_sensor_force_update
+        <<: *power_sensor_defaults
+      - name: kitchen_appliance_group_total_power
+        icon: mdi:fridge-outline
+        state: >-
+          {% set virtualpower = expand('group.kitchen_appliance_group_total_power') | rejectattr('state', 'in', ['unavailable', 'unknown']) | map(attribute='state') | map('float') | sum | round(2) %}
+          {{ max( virtualpower | round(1), 0.0 ) }}
+        attributes:
+          tmp_friendly_name: "Kitchen Appliance Group Total Power"
+          <<: *power_sensor_force_update
+        <<: *power_sensor_defaults
+      - name: other_appliance_group_total_power
+        icon: mdi:power-plug
+        state: >-
+          {% set virtualpower = expand('group.other_appliance_group_total_power') | rejectattr('state', 'in', ['unavailable', 'unknown']) | map(attribute='state') | map('float') | sum | round(2) %}
+          {{ max( virtualpower | round(1), 0.0 ) }}
+        attributes:
+          tmp_friendly_name: "Other Appliance Group Total Power"
+          <<: *power_sensor_force_update
+        <<: *power_sensor_defaults
+      - name: washer_dryer_group_total_power
+        icon: mdi:hanger
+        state: >-
+          {% set virtualpower = expand('group.washer_dryer_group_total_power') | rejectattr('state', 'in', ['unavailable', 'unknown']) | map(attribute='state') | map('float') | sum | round(2) %}
+          {{ max( virtualpower | round(1), 0.0 ) }}
+        attributes:
+          tmp_friendly_name: "Washer Dryer Group Total Power"
+          <<: *power_sensor_force_update
+        <<: *power_sensor_defaults
+      - name: technology_group_total_power
+        icon: mdi:network
+        state: >-
+          {% set virtualpower = expand('group.technology_group_total_power') | rejectattr('state', 'in', ['unavailable', 'unknown']) | map(attribute='state') | map('float') | sum | round(2) %}
+          {{ max( virtualpower | round(1), 0.0 ) }}
+        attributes:
+          tmp_friendly_name: "Technology Group Total Power"
+          <<: *power_sensor_force_update
+        <<: *power_sensor_defaults
+      - name: garage_group_total_power
+        icon: mdi:garage
+        state: >-
+          {% set virtualpower = expand('group.garage_group_total_power') | rejectattr('state', 'in', ['unavailable', 'unknown']) | map(attribute='state') | map('float') | sum | round(2) %}
+          {{ max( virtualpower | round(1), 0.0 ) }}
+        attributes:
+          tmp_friendly_name: "Garage Group Total Power"
+          <<: *power_sensor_force_update
+        <<: *power_sensor_defaults
+      - name: pool_group_total_power
+        icon: mdi:pool
+        state: >-
+          {% set virtualpower = expand('group.pool_group_total_power') | rejectattr('state', 'in', ['unavailable', 'unknown']) | map(attribute='state') | map('float') | sum | round(2) %}
+          {{ max( virtualpower | round(1), 0.0 ) }}
+        attributes:
+          tmp_friendly_name: "Pool Group Total Power"
+          <<: *power_sensor_force_update
+        <<: *power_sensor_defaults
+      - name: other_group_total_power
+        icon: mdi:crosshairs-question
+        state: >-
+          {% set virtualpower = expand('group.other_group_total_power') | rejectattr('state', 'in', ['unavailable', 'unknown']) | map(attribute='state') | map('float') | sum | round(2) %}
+          {{ max( virtualpower | round(1), 0.0 ) }}
+        attributes:
+          tmp_friendly_name: "Other Group Total Power"
+          <<: *power_sensor_force_update
+        <<: *power_sensor_defaults
+
+automation:
+  ################  Create and update power groupings for circuits and devices  ###############
+  - alias: "Update Power Groups"
+    trigger:
+      - platform: homeassistant
+        event: start
+      - platform: event
+        event_type: "call_service"
+        event_data:
+          domain: "group"
+          service: "reload"
+    action:
+      - service: group.set
+        data_template:
+          object_id: p1_04_v_power
+          entities: >
+            {% set ns = namespace(entities=[]) %}
+            {% for s in states.sensor if s.object_id.startswith('p1_04_v') and s.object_id.endswith('_power') %}
+              {% set ns.entities = ns.entities + [ s.entity_id ] %}
+            {% endfor %}
+            {{ ns.entities }}
+      - service: group.set
+        data_template:
+          object_id: p1_11_v_power
+          entities: >
+            {% set ns = namespace(entities=[]) %}
+            {% for s in states.sensor if s.object_id.startswith('p1_11_v') and s.object_id.endswith('_power') %}
+              {% set ns.entities = ns.entities + [ s.entity_id ] %}
+            {% endfor %}
+            {{ ns.entities }}
+      - service: group.set
+        data_template:
+          object_id: p1_12_v_power
+          entities: >
+            {% set ns = namespace(entities=[]) %}
+            {% for s in states.sensor if s.object_id.startswith('p1_12_v') and s.object_id.endswith('_power') %}
+              {% set ns.entities = ns.entities + [ s.entity_id ] %}
+            {% endfor %}
+            {{ ns.entities }}
+      - service: group.set
+        data_template:
+          object_id: p1_13_v_power
+          entities: >
+            {% set ns = namespace(entities=[]) %}
+            {% for s in states.sensor if s.object_id.startswith('p1_13_v') and s.object_id.endswith('_power') %}
+              {% set ns.entities = ns.entities + [ s.entity_id ] %}
+            {% endfor %}
+            {{ ns.entities }}
+      - service: group.set
+        data_template:
+          object_id: p1_14_v_power
+          entities: >
+            {% set ns = namespace(entities=[]) %}
+            {% for s in states.sensor if s.object_id.startswith('p1_14_v') and s.object_id.endswith('_power') %}
+              {% set ns.entities = ns.entities + [ s.entity_id ] %}
+            {% endfor %}
+            {{ ns.entities }}
+      - service: group.set
+        data_template:
+          object_id: p1_99_v_power
+          entities: >
+            {% set ns = namespace(entities=[]) %}
+            {% for s in states.sensor if s.object_id.startswith('p1_99_v') and s.object_id.endswith('_power') %}
+              {% set ns.entities = ns.entities + [ s.entity_id ] %}
+            {% endfor %}
+            {{ ns.entities }}
+
+      - service: group.set
+        data_template:
+          object_id: p2_13_v_power
+          entities: >
+            {% set ns = namespace(entities=[]) %}
+            {% for s in states.sensor if s.object_id.startswith('p2_13_v') and s.object_id.endswith('_power') %}
+              {% set ns.entities = ns.entities + [ s.entity_id ] %}
+            {% endfor %}
+            {{ ns.entities }}
+      - service: group.set
+        data_template:
+          object_id: p2_13_v_techrack_power
+          entities: >
+            {% set ns = namespace(entities=[]) %}
+            {% for s in states.sensor if s.object_id.startswith('p2_13_v_techrack_') and not '_ups_' in s.object_id and s.object_id.endswith('_power') %}
+              {% set ns.entities = ns.entities + [ s.entity_id ] %}
+            {% endfor %}
+            {{ ns.entities }}
+      - service: group.set
+        data_template:
+          object_id: p2_14_v_power
+          entities: >
+            {% set ns = namespace(entities=[]) %}
+            {% for s in states.sensor if s.object_id.startswith('p2_14_v') and s.object_id.endswith('_power') %}
+              {% set ns.entities = ns.entities + [ s.entity_id ] %}
+            {% endfor %}
+            {{ ns.entities }}
+      - service: group.set
+        data_template:
+          object_id: p2_15_v_power
+          entities: >
+            {% set ns = namespace(entities=[]) %}
+            {% for s in states.sensor if s.object_id.startswith('p2_15_v') and s.object_id.endswith('_power') %}
+              {% set ns.entities = ns.entities + [ s.entity_id ] %}
+            {% endfor %}
+            {{ ns.entities }}
+      - service: group.set
+        data_template:
+          object_id: p2_99_v_power
+          entities: >
+            {% set ns = namespace(entities=[]) %}
+            {% for s in states.sensor if s.object_id.startswith('p2_99_v') and s.object_id.endswith('_power') %}
+              {% set ns.entities = ns.entities + [ s.entity_id ] %}
+            {% endfor %}
+            {{ ns.entities }}
+      - service: group.set
+        data_template:
+          object_id: water_heater_group_total_power
+          entities: >
+            {% set ns = namespace(entities=[]) %}
+            {% for s in states.sensor if ('_water_heater_' in s.object_id or '_recirc_pump_' in s.object_id) and (s.object_id.startswith('p1_') or s.object_id.startswith('p2_')) and s.object_id.endswith('_power') %}
+              {% set ns.entities = ns.entities + [ s.entity_id ] %}
+            {% endfor %}
+            {{ ns.entities }}
+      - service: group.set
+        data_template:
+          object_id: light_group_total_power
+          entities: >
+            {% set ns = namespace(entities=[]) %}
+            {% for s in states.sensor if '_light_' in s.object_id and (s.object_id.startswith('p1_') or s.object_id.startswith('p2_')) and s.object_id.endswith('_power') %}
+              {% set ns.entities = ns.entities + [ s.entity_id ] %}
+            {% endfor %}
+            {{ ns.entities }}
+      - service: group.set
+        data_template:
+          object_id: hvac_group_total_power
+          entities: >
+            {% set ns = namespace(entities=[]) %}
+            {% for s in states.sensor if ('_hvac_' in s.object_id or '_fan_' in s.object_id) and not 'radon' in s.object_id and (s.object_id.startswith('p1_') or s.object_id.startswith('p2_')) and s.object_id.endswith('_power') %}
+              {% set ns.entities = ns.entities + [ s.entity_id ] %}
+            {% endfor %}
+            {{ ns.entities }}
+      - service: group.set
+        data_template:
+          object_id: kitchen_appliance_group_total_power
+          entities: >
+            {% set ns = namespace(entities=[]) %}
+            {% for s in states.sensor if '_kitchen_' in s.object_id and not '_light_' in s.object_id and (s.object_id.startswith('p1_') or s.object_id.startswith('p2_')) and s.object_id.endswith('_power') %}
+              {% set ns.entities = ns.entities + [ s.entity_id ] %}
+            {% endfor %}
+            {{ ns.entities }}
+      - service: group.set
+        data_template:
+          object_id: other_appliance_group_total_power
+          entities: >
+            {% set ns = namespace(entities=[]) %}
+            {% for s in states.sensor if ('_beer_fridge_' in s.object_id or '_sump_' in s.object_id or '_radon_fan_' in s.object_id or '_freezer_' in s.object_id) and (s.object_id.startswith('p1_') or s.object_id.startswith('p2_')) and s.object_id.endswith('_power') %}
+              {% set ns.entities = ns.entities + [ s.entity_id ] %}
+            {% endfor %}
+            {{ ns.entities }}
+      - service: group.set
+        data_template:
+          object_id: washer_dryer_group_total_power
+          entities: >
+            {% set ns = namespace(entities=[]) %}
+            {% for s in states.sensor if ('_washer_' in s.object_id or '_dryer_' in s.object_id) and (s.object_id.startswith('p1_') or s.object_id.startswith('p2_')) and s.object_id.endswith('_power') %}
+              {% set ns.entities = ns.entities + [ s.entity_id ] %}
+            {% endfor %}
+            {{ ns.entities }}
+      - service: group.set
+        data_template:
+          object_id: technology_group_total_power
+          entities: >
+            {% set ns = namespace(entities=[]) %}
+            {% for s in states.sensor if ('_tech' in s.object_id or '_computer' in s.object_id) and (s.object_id.startswith('p1_') or s.object_id.startswith('p2_')) and s.object_id.endswith('_power') %}
+              {% set ns.entities = ns.entities + [ s.entity_id ] %}
+            {% endfor %}
+            {{ ns.entities }}
+      - service: group.set
+        data_template:
+          object_id: garage_group_total_power
+          entities: >
+            {% set ns = namespace(entities=[]) %}
+            {% for s in states.sensor if '_garage_' in s.object_id and not '_light' in s.object_id and (s.object_id.startswith('p1_') or s.object_id.startswith('p2_')) and s.object_id.endswith('_power') %}
+              {% set ns.entities = ns.entities + [ s.entity_id ] %}
+            {% endfor %}
+            {{ ns.entities }}
+      - service: group.set
+        data_template:
+          object_id: pool_group_total_power
+          entities: >
+            {% set ns = namespace(entities=[]) %}
+            {% for s in states.sensor if '_pool_' in s.object_id and (s.object_id.startswith('p1_') or s.object_id.startswith('p2_')) and s.object_id.endswith('_power') %}
+              {% set ns.entities = ns.entities + [ s.entity_id ] %}
+            {% endfor %}
+            {{ ns.entities }}
+      - service: group.set
+        data_template:
+          object_id: other_group_total_power
+          entities: >
+            {% set gtp = namespace(entities=[]) %}
+            {% for e in states.group if not e.object_id.startswith('other_group_total_power') and e.object_id.endswith('group_total_power') %}
+              {% set gtp.entities = gtp.entities + (expand([e]) | map(attribute="entity_id") | list) %}
+            {% endfor %}
+            {% set kp = namespace(entities=[]) %}
+            {% for s in states.sensor if (s.object_id.startswith('p1_') or s.object_id.startswith('p2_')) and s.object_id.endswith('_power') and not s.object_id.endswith('total_power') %}
+              {% if s.entity_id not in gtp.entities %}              
+                  {% set kp.entities = kp.entities + [ s.entity_id ] %}
+              {% endif %}
+            {% endfor %}
+            {{ kp.entities }}
+
+sensor:
+  ################  Total hourly energy calculation  ###############
+  - platform: integration
+    name: electric_home_total_energy
+    source: sensor.electric_home_total_power
+    <<: &energy_calculation_defaults
+      unit_time: h
+      unit_prefix: k
+      round: 2
+  - platform: integration
+    name: p1_00_total_energy
+    source: sensor.p1_00_total_power
+    <<: *energy_calculation_defaults
+  - platform: integration
+    name: p2_00_total_energy
+    source: sensor.p2_00_total_power
+    <<: *energy_calculation_defaults
+  - platform: integration
+    name: water_heater_group_total_energy
+    source: sensor.water_heater_group_total_power
+    <<: *energy_calculation_defaults
+  - platform: integration
+    name: light_group_total_energy
+    source: sensor.light_group_total_power
+    <<: *energy_calculation_defaults
+  - platform: integration
+    name: hvac_group_total_energy
+    source: sensor.hvac_group_total_power
+    <<: *energy_calculation_defaults
+  - platform: integration
+    name: kitchen_appliance_group_total_energy
+    source: sensor.kitchen_appliance_group_total_power
+    <<: *energy_calculation_defaults
+  - platform: integration
+    name: other_appliance_group_total_energy
+    source: sensor.other_appliance_group_total_power
+    <<: *energy_calculation_defaults
+  - platform: integration
+    name: washer_dryer_group_total_energy
+    source: sensor.washer_dryer_group_total_power
+    <<: *energy_calculation_defaults
+  - platform: integration
+    name: technology_group_total_energy
+    source: sensor.technology_group_total_power
+    <<: *energy_calculation_defaults
+  - platform: integration
+    name: garage_group_total_energy
+    source: sensor.garage_group_total_power
+    <<: *energy_calculation_defaults
+  - platform: integration
+    name: pool_group_total_energy
+    source: sensor.pool_group_total_power
+    <<: *energy_calculation_defaults
+  - platform: integration
+    name: other_group_total_energy
+    source: sensor.other_group_total_power
+    <<: *energy_calculation_defaults
+
+  - platform: template
+    sensors:
+      ################  Calculate daily energy cost for each grouping  ###############
+      electric_home_daily_total_energy_cost:
+        friendly_name: "Electric Home Daily Total Energy Cost"
+        value_template: >-
+          {{ max( (states('sensor.electric_home_daily_total_energy') | float(0) * states('input_number.energy_kwh_cost') | float(0)) | round(2), 0.00 ) }}
+        <<: &energy_cost_defaults
+          unit_of_measurement: "$"
+          icon_template: mdi:currency-usd
+      water_heater_group_daily_total_energy_cost:
+        friendly_name: "Water Heater Group Daily Total Energy Cost"
+        value_template: >-
+          {{ max( (states('sensor.water_heater_group_daily_total_energy') | float(0) * states('input_number.energy_kwh_cost') | float(0)) | round(2), 0.00 ) }}
+        <<: *energy_cost_defaults
+      light_group_daily_total_energy_cost:
+        friendly_name: "Light Group Daily Total Energy Cost"
+        value_template: >-
+          {{ max( (states('sensor.light_group_daily_total_energy') | float(0) * states('input_number.energy_kwh_cost') | float(0)) | round(2), 0.00 ) }}
+        <<: *energy_cost_defaults
+      hvac_group_daily_total_energy_cost:
+        friendly_name: "HVAC Group Daily Total Energy Cost"
+        value_template: >-
+          {{ max( (states('sensor.hvac_group_daily_total_energy') | float(0) * states('input_number.energy_kwh_cost') | float(0)) | round(2), 0.00 ) }}
+        <<: *energy_cost_defaults
+      kitchen_appliance_group_daily_total_energy_cost:
+        friendly_name: "Kitchen Appliance Group Daily Total Energy Cost"
+        value_template: >-
+          {{ max( (states('sensor.kitchen_appliance_group_daily_total_energy') | float(0) * states('input_number.energy_kwh_cost') | float(0)) | round(2), 0.00 ) }}
+        <<: *energy_cost_defaults
+      other_appliance_group_daily_total_energy_cost:
+        friendly_name: "Other Appliance Group Daily Total Energy Cost"
+        value_template: >-
+          {{ max( (states('sensor.other_appliance_group_daily_total_energy') | float(0) * states('input_number.energy_kwh_cost') | float(0)) | round(2), 0.00 ) }}
+        <<: *energy_cost_defaults
+      washer_dryer_group_daily_total_energy_cost:
+        friendly_name: "Washer Dryer Group Daily Total Energy Cost"
+        value_template: >-
+          {{ max( (states('sensor.washer_dryer_group_daily_total_energy') | float(0) * states('input_number.energy_kwh_cost') | float(0)) | round(2), 0.00 ) }}
+        <<: *energy_cost_defaults
+      technology_group_daily_total_energy_cost:
+        friendly_name: "Technology Group Daily Total Energy Cost"
+        value_template: >-
+          {{ max( (states('sensor.technology_group_daily_total_energy') | float(0) * states('input_number.energy_kwh_cost') | float(0)) | round(2), 0.00 ) }}
+        <<: *energy_cost_defaults
+      garage_group_daily_total_energy_cost:
+        friendly_name: "Garage Group Daily Total Energy Cost"
+        value_template: >-
+          {{ max( (states('sensor.garage_group_daily_total_energy') | float(0) * states('input_number.energy_kwh_cost') | float(0)) | round(2), 0.00 ) }}
+        <<: *energy_cost_defaults
+      pool_group_daily_total_energy_cost:
+        friendly_name: "Pool Group Daily Total Energy Cost"
+        value_template: >-
+          {{ max( (states('sensor.pool_group_daily_total_energy') | float(0) * states('input_number.energy_kwh_cost') | float(0)) | round(2), 0.00 ) }}
+        <<: *energy_cost_defaults
+      other_group_daily_total_energy_cost:
+        friendly_name: "Other Group Daily Total Energy Cost"
+        value_template: >-
+          {{ max( (states('sensor.other_group_daily_total_energy') | float(0) * states('input_number.energy_kwh_cost') | float(0)) | round(2), 0.00 ) }}
+        <<: *energy_cost_defaults
+      ################  Calculate monthly energy cost for each grouping  ###############
+      electric_home_monthly_total_energy_cost:
+        friendly_name: "Electric Home Monthly Total Energy Cost"
+        value_template: >-
+          {{ max( (states('sensor.electric_home_monthly_total_energy') | float(0) * states('input_number.energy_kwh_cost') | float(0)) | round(2), 0.00 ) }}
+        <<: *energy_cost_defaults
+      water_heater_group_monthly_total_energy_cost:
+        friendly_name: "Water Heater Group Monthly Total Energy Cost"
+        value_template: >-
+          {{ max( (states('sensor.water_heater_group_monthly_total_energy') | float(0) * states('input_number.energy_kwh_cost') | float(0)) | round(2), 0.00 ) }}
+        <<: *energy_cost_defaults
+      light_group_monthly_total_energy_cost:
+        friendly_name: "Light Group Monthly Total Energy Cost"
+        value_template: >-
+          {{ max( (states('sensor.light_group_monthly_total_energy') | float(0) * states('input_number.energy_kwh_cost') | float(0)) | round(2), 0.00 ) }}
+        <<: *energy_cost_defaults
+      hvac_group_monthly_total_energy_cost:
+        friendly_name: "HVAC Group Monthly Total Energy Cost"
+        value_template: >-
+          {{ max( (states('sensor.hvac_group_monthly_total_energy') | float(0) * states('input_number.energy_kwh_cost') | float(0)) | round(2), 0.00 ) }}
+        <<: *energy_cost_defaults
+      kitchen_appliance_group_monthly_total_energy_cost:
+        friendly_name: "Kitchen Appliance Group Monthly Total Energy Cost"
+        value_template: >-
+          {{ max( (states('sensor.kitchen_appliance_group_monthly_total_energy') | float(0) * states('input_number.energy_kwh_cost') | float(0)) | round(2), 0.00 ) }}
+        <<: *energy_cost_defaults
+      other_appliance_group_monthly_total_energy_cost:
+        friendly_name: "Other Appliance Group Monthly Total Energy Cost"
+        value_template: >-
+          {{ max( (states('sensor.other_appliance_group_monthly_total_energy') | float(0) * states('input_number.energy_kwh_cost') | float(0)) | round(2), 0.00 ) }}
+        <<: *energy_cost_defaults
+      washer_dryer_group_monthly_total_energy_cost:
+        friendly_name: "Washer Dryer Group Monthly Total Energy Cost"
+        value_template: >-
+          {{ max( (states('sensor.washer_dryer_group_monthly_total_energy') | float(0) * states('input_number.energy_kwh_cost') | float(0)) | round(2), 0.00 ) }}
+        <<: *energy_cost_defaults
+      technology_group_monthly_total_energy_cost:
+        friendly_name: "Technology Group Monthly Total Energy Cost"
+        value_template: >-
+          {{ max( (states('sensor.technology_group_monthly_total_energy') | float(0) * states('input_number.energy_kwh_cost') | float(0)) | round(2), 0.00 ) }}
+        <<: *energy_cost_defaults
+      garage_group_monthly_total_energy_cost:
+        friendly_name: "Garage Group Monthly Total Energy Cost"
+        value_template: >-
+          {{ max( (states('sensor.garage_group_monthly_total_energy') | float(0) * states('input_number.energy_kwh_cost') | float(0)) | round(2), 0.00 ) }}
+        <<: *energy_cost_defaults
+      pool_group_monthly_total_energy_cost:
+        friendly_name: "Pool Group Monthly Total Energy Cost"
+        value_template: >-
+          {{ max( (states('sensor.electric_hpool_group_monthly_total_energyome_monthly_total_energy') | float(0) * states('input_number.energy_kwh_cost') | float(0)) | round(2), 0.00 ) }}
+        <<: *energy_cost_defaults
+      other_group_monthly_total_energy_cost:
+        friendly_name: "Other Group Monthly Total Energy Cost"
+        value_template: >-
+          {{ max( (states('sensor.other_group_monthly_total_energy') | float(0) * states('input_number.energy_kwh_cost') | float(0)) | round(2), 0.00 ) }}
+        <<: *energy_cost_defaults
+
+utility_meter:
+  ################  Track daily consumption for each grouping  ###############
+  electric_home_daily_total_energy:
+    source: sensor.electric_home_total_energy
+    cycle: daily
+  water_heater_group_daily_total_energy:
+    source: sensor.water_heater_group_total_energy
+    cycle: daily
+  light_group_daily_total_energy:
+    source: sensor.light_group_total_energy
+    cycle: daily
+  hvac_group_daily_total_energy:
+    source: sensor.hvac_group_total_energy
+    cycle: daily
+  kitchen_appliance_group_daily_total_energy:
+    source: sensor.kitchen_appliance_group_total_energy
+    cycle: daily
+  other_appliance_group_daily_total_energy:
+    source: sensor.other_appliance_group_total_energy
+    cycle: daily
+  washer_dryer_group_daily_total_energy:
+    source: sensor.washer_dryer_group_total_energy
+    cycle: daily
+  technology_group_daily_total_energy:
+    source: sensor.technology_group_total_energy
+    cycle: daily
+  garage_group_daily_total_energy:
+    source: sensor.garage_group_total_energy
+    cycle: daily
+  pool_group_daily_total_energy:
+    source: sensor.pool_group_total_energy
+    cycle: daily
+  other_group_daily_total_energy:
+    source: sensor.other_group_total_energy
+    cycle: daily
+      ################  Track monthly consumption for each grouping  ###############
+  electric_home_monthly_total_energy:
+    source: sensor.electric_home_total_energy
+    cycle: monthly
+  water_heater_group_monthly_total_energy:
+    source: sensor.water_heater_group_total_energy
+    cycle: monthly
+  light_group_monthly_total_energy:
+    source: sensor.light_group_total_energy
+    cycle: monthly
+  hvac_group_monthly_total_energy:
+    source: sensor.hvac_group_total_energy
+    cycle: monthly
+  kitchen_appliance_group_monthly_total_energy:
+    source: sensor.kitchen_appliance_group_total_energy
+    cycle: monthly
+  other_appliance_group_monthly_total_energy:
+    source: sensor.other_appliance_group_total_energy
+    cycle: monthly
+  washer_dryer_group_monthly_total_energy:
+    source: sensor.washer_dryer_group_total_energy
+    cycle: monthly
+  technology_group_monthly_total_energy:
+    source: sensor.technology_group_total_energy
+    cycle: monthly
+  garage_group_monthly_total_energy:
+    source: sensor.garage_group_total_energy
+    cycle: monthly
+  pool_group_monthly_total_energy:
+    source: sensor.pool_group_total_energy
+    cycle: monthly
+  other_group_monthly_total_energy:
+    source: sensor.other_group_total_energy
+    cycle: monthly
