@@ -1,6 +1,6 @@
 # My approach to energy management
 
-![](images/Main_Dashboard.jpg | width=300)
+![](images/Main_Dashboard.jpg | width=300px)
 I started measuring my home energy use about 3 years ago.  In the beginning it was just interesting to get things setup and see my total usage.  It gave me some insights, but I found myself wanting a more granular level of detail that would allow me to more quickly identify problem areas and opportunities for improvement.
 
 About 18 months ago I purchased two [Emporia Gen2 Vue](https://shop.emporiaenergy.com/collections/emporia-products/products/gen-2-emporia-vue-with-16-sensors-bundle) devices and outfitted 16 circuits in each of my two electrical panels.  Being able to report on the total power usage as well as details of 32 selected circuits gives a really nice level of detail.
