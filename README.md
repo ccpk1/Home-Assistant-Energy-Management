@@ -61,11 +61,11 @@ template:
       # NOTE - This approach does somewhat impact the accuracy of your data since it is not averaging the data in
       # between the time periods, but it will still end up being relatively close and give you a good data
       # about energy usage
-      - platform: time_pattern
+      - trigger: time_pattern
         seconds: "/5" #Only pull electric data every 5 seconds to minimize data / performance impact
-      - platform: homeassistant
+      - trigger: homeassistant
         event: start
-      - platform: event
+      - trigger: event
         event_type: "call_service"
         event_data:
           domain: "template"
@@ -242,11 +242,11 @@ One option is to just manually create the groups you want to monitor, then use t
 ```yaml
 automation:
   ################  Create and update power groupings for circuits and devices  ###############
-  - alias: "Update Power Groups"
-    trigger:
-      - platform: homeassistant
+  - alias: "Electric: Group Member Update Power"
+    triggers:
+      - trigger: homeassistant
         event: start
-      - platform: event
+      - trigger: event
         event_type: "call_service"
         event_data:
           domain: "group"
