@@ -1,0 +1,10 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Check Energy status",
+			"type": "shell",
+			"command": "git status -sb"
+		}
+	]
+}
